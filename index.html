@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Nuovi Orizzonti APS — Solidarietà, formazione e Servizio Civile nell'entroterra sicano</title>
+    <meta
+      name="description"
+      content="Nuovi Orizzonti APS: dal 2012 al servizio del sociale nell'entroterra sicano. Sostegno alle famiglie con il Banco delle Opere di Carità, formazione professionale e Servizio Civile Universale a Bisacquino."
+    />
+    <meta name="theme-color" content="#08345A" />
+    <link rel="icon" type="image/png" href="assets/logo-small.png" />
+    <link rel="preload" href="assets/Montserrat-var.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content="Nuovi Orizzonti APS — Dal 2012 al servizio del sociale" />
+    <meta property="og:description" content="Solidarietà, formazione professionale e Servizio Civile Universale nell'entroterra sicano." />
+    <meta property="og:image" content="assets/logo.png" />
+    <meta property="og:locale" content="it_IT" />
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        src: url("assets/Montserrat-var.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        /* Colori del logo */
+        --navy: #08345a;
+        --blue: #063b67;
+        --orange: #f78105;
+        --green: #009247;
+        --red: #e30613;
+        --paper: #fbfaf6;
+        --white: #ffffff;
+        --ink-soft: #3d5a75;
+        --line: rgba(8, 52, 90, 0.18);
+        --wrap: 1200px;
+        --gutter: clamp(20px, 4vw, 48px);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        background: var(--paper);
+        scroll-behavior: smooth;
+        scroll-padding-top: 24px;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        background: var(--paper);
+        color: var(--navy);
+        font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      }
+      main {
+        background: var(--paper);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        width: 100%;
+        max-width: var(--wrap);
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+      }
+      h1,
+      h2,
+      h3 {
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
+      }
+      .sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+      .skip {
+        position: absolute;
+        left: -9999px;
+      }
+      .skip:focus {
+        left: 12px;
+        top: 12px;
+        z-index: 100;
+        background: var(--navy);
+        color: var(--white);
+        padding: 10px 14px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--navy);
+        outline-offset: 3px;
+      }
+      .box--call :focus-visible,
+      footer :focus-visible {
+        outline-color: var(--orange);
+      }
+
+      /* ---------- Pulsanti ---------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 14px 26px;
+        border: 2px solid var(--navy);
+        border-radius: 4px;
+        background: var(--navy);
+        color: var(--white);
+        font: inherit;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.2;
+        text-decoration: none;
+        text-align: center;
+        transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+      }
+      .btn:hover {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: var(--navy);
+        transform: translateY(-2px);
+      }
+      .btn:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .btn--ghost {
+        background: transparent;
+        color: var(--navy);
+      }
+      .btn--ghost:hover {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: var(--white);
+      }
+      .btn--small {
+        min-height: 44px;
+        padding: 10px 18px;
+        font-size: 15px;
+      }
+      .arrow {
+        font-weight: 400;
+      }
+
+      /* ---------- Testata ---------- */
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      .top .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 76px;
+      }
+      .brand img {
+        height: 56px;
+        width: auto;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .nav a:not(.btn) {
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        padding: 10px 0;
+        border-bottom: 2px solid transparent;
+      }
+      .nav a:not(.btn):hover {
+        border-bottom-color: var(--orange);
+      }
+
+      /* ---------- Etichette e titoli di sezione ---------- */
+      .label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .label::before {
+        content: "";
+        width: 34px;
+        height: 3px;
+        background: var(--orange);
+      }
+      section {
+        border-bottom: 1px solid var(--line);
+      }
+      .sec {
+        padding: clamp(64px, 9vw, 120px) 0;
+      }
+      .sec-head {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+        margin-bottom: clamp(36px, 5vw, 64px);
+      }
+      .sec-head .label {
+        grid-column: 1 / -1;
+      }
+      .sec-head h2 {
+        grid-column: 1 / span 7;
+        font-size: clamp(30px, 4.4vw, 54px);
+        line-height: 1.08;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .sec-head p {
+        grid-column: 9 / -1;
+        align-self: end;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative;
+        background-color: var(--paper);
+        background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 96px 96px;
+        background-position: center top;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(251, 250, 246, 0.72) 0%, rgba(251, 250, 246, 0.94) 100%);
+        pointer-events: none;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: clamp(28px, 4vw, 56px);
+        align-items: center;
+        padding-top: clamp(48px, 7vw, 96px);
+        padding-bottom: clamp(56px, 8vw, 110px);
+      }
+      .hero-copy {
+        grid-column: 1 / span 7;
+      }
+      .hero h1 {
+        margin: 22px 0 26px;
+        font-size: clamp(40px, 6.3vw, 84px);
+        line-height: 1.02;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--navy);
+        background: linear-gradient(var(--orange), var(--orange)) 0 92% / 100% 0.13em no-repeat;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+      .lead {
+        max-width: 34em;
+        font-size: clamp(18px, 1.6vw, 21px);
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+      .lead strong {
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 36px;
+      }
+      .hero-panel {
+        grid-column: 8 / -1;
+        background: var(--white);
+        border: 2px solid var(--navy);
+        border-radius: 6px;
+        box-shadow: 10px 10px 0 var(--navy);
+      }
+      .hero-panel .logo {
+        padding: 30px 26px 22px;
+        border-bottom: 2px solid var(--navy);
+      }
+      .facts {
+        list-style: none;
+      }
+      .facts li {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        gap: 16px;
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--line);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+      .facts li:last-child {
+        border-bottom: 0;
+      }
+      .facts span {
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        padding-top: 2px;
+      }
+      .facts b {
+        font-weight: 700;
+      }
+      .facts a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-weight: 700;
+        text-decoration-color: var(--orange);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+      .facts .tel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 22px;
+        margin: -10px 0;
+      }
+
+      /* ---------- Dal 2012 ---------- */
+      .since {
+        background: var(--white);
+      }
+      .since .wrap {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: clamp(24px, 4vw, 56px);
+        align-items: center;
+        padding-top: clamp(48px, 6vw, 84px);
+        padding-bottom: clamp(48px, 6vw, 84px);
+      }
+      .since h2 {
+        grid-column: 1 / span 7;
+        font-size: clamp(32px, 5vw, 64px);
+        line-height: 1.04;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+      .since h2 em {
+        font-style: normal;
+        color: var(--navy);
+        background: linear-gradient(var(--orange), var(--orange)) 0 92% / 100% 0.13em no-repeat;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+      .since p {
+        grid-column: 8 / -1;
+        padding-left: clamp(18px, 2.4vw, 32px);
+        border-left: 3px solid var(--orange);
+        font-size: clamp(17px, 1.5vw, 19px);
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Card ---------- */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background: var(--white);
+        border: 2px solid var(--navy);
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      @media (hover: hover) {
+        .card:hover {
+          transform: translate(-4px, -4px);
+          box-shadow: 8px 8px 0 var(--navy);
+        }
+      }
+      .card:focus-within {
+        box-shadow: 8px 8px 0 var(--navy);
+      }
+      .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration-color: var(--orange);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
+      }
+      .card-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+      .card .bar {
+        height: 10px;
+        border-bottom: 2px solid var(--navy);
+      }
+      .bar--green {
+        background: var(--green);
+      }
+      .bar--orange {
+        background: var(--orange);
+      }
+      .bar--red {
+        background: var(--red);
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 28px 26px 26px;
+      }
+      .num {
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+        color: var(--ink-soft);
+      }
+      .card h3 {
+        margin: 14px 0 12px;
+        font-size: clamp(22px, 2.1vw, 27px);
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        color: var(--ink-soft);
+      }
+      .card .who {
+        margin-top: auto;
+        padding-top: 22px;
+      }
+      .card .who span {
+        display: block;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      /* ---------- Chi siamo ---------- */
+      .about {
+        background: var(--white);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: clamp(28px, 4vw, 56px);
+      }
+      .about-text {
+        grid-column: 1 / span 7;
+      }
+      .about-text p + p {
+        margin-top: 18px;
+      }
+      .about-text p:first-child {
+        font-size: clamp(19px, 1.9vw, 23px);
+        line-height: 1.5;
+        font-weight: 600;
+      }
+      .about-text p {
+        color: var(--ink-soft);
+      }
+      .about-text p:first-child {
+        color: var(--navy);
+      }
+      .pillars {
+        grid-column: 8 / -1;
+        list-style: none;
+        border: 2px solid var(--navy);
+        border-radius: 6px;
+        background: var(--paper);
+        align-self: start;
+      }
+      .pillars li {
+        padding: 22px 24px;
+        border-bottom: 1px solid var(--line);
+      }
+      .pillars li:last-child {
+        border-bottom: 0;
+      }
+      .pillars b {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 800;
+      }
+      .pillars b::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid var(--navy);
+        flex: none;
+      }
+      .pillars li:nth-child(1) b::before {
+        background: var(--green);
+      }
+      .pillars li:nth-child(2) b::before {
+        background: var(--orange);
+      }
+      .pillars li:nth-child(3) b::before {
+        background: var(--red);
+      }
+      .pillars p {
+        margin-top: 6px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- Contatti ---------- */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+      }
+      .box {
+        background: var(--white);
+        border: 2px solid var(--navy);
+        border-radius: 6px;
+        padding: 28px 26px;
+      }
+      .box--call {
+        grid-column: 1 / span 5;
+        background: var(--navy);
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .box--call h3 {
+        font-size: clamp(24px, 2.6vw, 32px);
+        line-height: 1.12;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .box--call p {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 8px;
+      }
+      .box--call .btn {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: var(--navy);
+        width: 100%;
+        font-size: 18px;
+      }
+      .box--call .btn:hover {
+        background: var(--white);
+        border-color: var(--white);
+      }
+      .box--call .btn--ghost {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.6);
+        color: var(--white);
+      }
+      .box--call .btn--ghost:hover {
+        background: var(--white);
+        color: var(--navy);
+      }
+      .info {
+        grid-column: 6 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .box .kicker {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        margin-bottom: 12px;
+      }
+      .box .big {
+        font-size: clamp(19px, 1.9vw, 23px);
+        line-height: 1.3;
+        font-weight: 800;
+      }
+      .box .muted {
+        margin-top: 8px;
+        font-size: 15px;
+        color: var(--ink-soft);
+      }
+      .box--wide {
+        grid-column: 1 / -1;
+      }
+      .link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        margin-top: 4px;
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration-color: var(--orange);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
+      }
+
+      /* ---------- Piede ---------- */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 15px;
+      }
+      footer .wrap {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+        padding-top: 48px;
+        padding-bottom: 48px;
+      }
+      footer .f-brand {
+        grid-column: 1 / span 5;
+      }
+      footer .f-brand b {
+        display: block;
+        color: var(--white);
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      footer .f-col {
+        grid-column: span 3;
+      }
+      footer .f-col:last-child {
+        grid-column: span 4;
+      }
+      footer .kicker {
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      footer a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.45);
+        text-underline-offset: 4px;
+      }
+      footer a:hover {
+        text-decoration-color: var(--orange);
+      }
+      footer .legal {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      footer .legal .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 34px;
+        padding-top: 24px;
+        padding-bottom: 28px;
+        font-size: 14px;
+      }
+      footer .legal b {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      /* ---------- Schermi medi e piccoli ---------- */
+      @media (max-width: 980px) {
+        .hero-copy,
+        .hero-panel,
+        .about-text,
+        .pillars,
+        .box--call,
+        .info {
+          grid-column: 1 / -1;
+        }
+        .sec-head h2,
+        .sec-head p {
+          grid-column: 1 / -1;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .since h2,
+        .since p {
+          grid-column: 1 / -1;
+        }
+        .hero-panel {
+          box-shadow: 6px 6px 0 var(--navy);
+        }
+        footer .f-brand,
+        footer .f-col,
+        footer .f-col:last-child {
+          grid-column: 1 / -1;
+        }
+      }
+      @media (max-width: 720px) {
+        body {
+          font-size: 16px;
+        }
+        .nav a:not(.btn) {
+          display: none;
+        }
+        .brand img {
+          height: 46px;
+        }
+        .top .wrap {
+          min-height: 66px;
+        }
+        .cta .btn {
+          width: 100%;
+        }
+        .info {
+          grid-template-columns: 1fr;
+        }
+        .facts li {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .btn,
+        .card {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#contenuto">Vai al contenuto</a>
+
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href="#inizio" aria-label="Nuovi Orizzonti APS, torna all'inizio">
+          <img src="assets/logo-small.webp" alt="Nuovi Orizzonti APS" width="480" height="247" />
+        </a>
+        <nav class="nav" aria-label="Sezioni della pagina">
+          <a href="#cosa-facciamo">Cosa facciamo</a>
+          <a href="#chi-siamo">Chi siamo</a>
+          <a href="#contatti">Dove siamo</a>
+          <a class="btn btn--small" href="#contatti">Contattaci</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenuto">
+      <!-- 1. La promessa -->
+      <section class="hero" id="inizio">
+        <div class="wrap">
+          <div class="hero-copy">
+            <p class="label">Associazione di promozione sociale</p>
+            <h1>Solidarietà, formazione e <em>futuro</em> nell'entroterra sicano.</h1>
+            <p class="lead">
+              Siamo al fianco di chi attraversa un momento difficile e di chi vuole costruirsi un domani: <strong>aiuti concreti alle famiglie</strong>,
+              <strong>formazione professionale</strong> e <strong>Servizio Civile Universale</strong> per i giovani.
+            </p>
+            <div class="cta">
+              <a class="btn" href="#contatti">Contattaci <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="#cosa-facciamo">Scopri cosa facciamo</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Informazioni rapide">
+            <div class="logo">
+              <img src="assets/logo.webp" fetchpriority="high" alt="Logo Nuovi Orizzonti APS: tre figure che si tengono per mano davanti alle montagne e al sole" width="1200" height="616" />
+            </div>
+            <ul class="facts">
+              <li><span>Aperti</span><div><b>Lunedì, martedì, mercoledì e venerdì</b>, dalle 15:00 alle 20:00</div></li>
+              <li><span>Dove</span><div><b>Piazzetta Petralia 3</b>, 90032 Bisacquino (PA)</div></li>
+              <li><span>Telefono</span><div class="tel"><a href="tel:+390918886084">091 888 6084</a><a href="tel:+393343358058">334 335 8058</a></div></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 2. La prova -->
+      <section class="since" aria-label="La nostra storia in breve">
+        <div class="wrap">
+          <h2>Dal 2012 al servizio <em>del sociale</em>.</h2>
+          <p>
+            Da oltre dieci anni collaboriamo con il Banco delle Opere di Carità per sostenere le persone e le famiglie in difficoltà del nostro territorio. Da
+            quell'impegno sono nati i percorsi di formazione e le opportunità del Servizio Civile Universale.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Cosa ottieni -->
+      <section class="sec" id="cosa-facciamo">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="label">Cosa facciamo</p>
+            <h2>Tre impegni, una sola comunità.</h2>
+            <p>Ogni attività risponde a un bisogno reale del territorio: l'aiuto immediato, le competenze per il lavoro, la partecipazione dei giovani.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <div class="bar bar--green"></div>
+              <div class="card-body">
+                <span class="num">01</span>
+                <h3>Sostegno alle famiglie</h3>
+                <p>
+                  Distribuiamo beni di prima necessità alle persone e alle famiglie in difficoltà economica e sociale e promuoviamo iniziative solidali. Un impegno che
+                  portiamo avanti dal 2012, in convenzione con il Banco delle Opere di Carità.
+                </p>
+                <div class="who">
+                  <span>Per chi attraversa un momento di difficoltà</span>
+                  <a class="card-link" href="#contatti" aria-label="Chiedi informazioni sul sostegno alle famiglie">Chiedi informazioni <span aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="bar bar--orange"></div>
+              <div class="card-body">
+                <span class="num">02</span>
+                <h3>Formazione professionale</h3>
+                <p>
+                  Percorsi di formazione, orientamento e crescita personale per acquisire competenze, favorire l'inserimento lavorativo e rafforzare l'inclusione
+                  sociale.
+                </p>
+                <div class="who">
+                  <span>Per chi cerca nuove competenze e opportunità di lavoro</span>
+                  <a class="card-link" href="#contatti" aria-label="Chiedi informazioni sulla formazione professionale">Chiedi informazioni <span aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="bar bar--red"></div>
+              <div class="card-body">
+                <span class="num">03</span>
+                <h3>Servizio Civile Universale</h3>
+                <p>
+                  Con posizioni già operative, offriamo ai giovani un'esperienza concreta di servizio alla comunità: un percorso di partecipazione, formazione e
+                  cittadinanza attiva.
+                </p>
+                <div class="who">
+                  <span>Per i giovani che vogliono mettersi in gioco</span>
+                  <a class="card-link" href="#contatti" aria-label="Chiedi informazioni sul Servizio Civile Universale">Chiedi informazioni <span aria-hidden="true">→</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chi siamo -->
+      <section class="sec about" id="chi-siamo">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="label">Chi siamo</p>
+            <h2>Radicati nel territorio, aperti al cambiamento.</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Nuovi Orizzonti APS è un'associazione di promozione sociale senza scopo di lucro, impegnata da anni nella solidarietà, nell'inclusione sociale e nella
+                crescita della comunità locale.
+              </p>
+              <p>
+                Nel tempo abbiamo consolidato la nostra presenza sul territorio e ampliato le attività: al volontariato quotidiano e al sostegno delle fasce più fragili
+                si sono affiancati i percorsi di formazione professionale, orientamento e crescita personale, insieme alle opportunità del Servizio Civile Universale.
+              </p>
+              <p>
+                Oggi siamo una realtà dinamica e in continua evoluzione. L'esperienza maturata, l'impegno dei volontari e l'ascolto costante dei bisogni del territorio
+                ci permettono di unire solidarietà, formazione e partecipazione civica, per generare valore sociale e contribuire al benessere di Bisacquino e del
+                territorio circostante.
+              </p>
+            </div>
+
+            <ul class="pillars">
+              <li>
+                <b>Solidarietà</b>
+                <p>Aiuti concreti e iniziative solidali per chi è in difficoltà.</p>
+              </li>
+              <li>
+                <b>Formazione</b>
+                <p>Competenze, orientamento e crescita personale per l'inserimento lavorativo.</p>
+              </li>
+              <li>
+                <b>Partecipazione civica</b>
+                <p>Volontariato e Servizio Civile: giovani e cittadini protagonisti della comunità.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4-5. L'obiezione ("come faccio?") e il pulsante -->
+      <section class="sec" id="contatti">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="label">Dove siamo e contatti</p>
+            <h2>Vieni a trovarci, oppure chiamaci.</h2>
+            <p>Per chiedere un aiuto, informarti sui corsi o sul Servizio Civile: ti aspettiamo in sede negli orari di apertura.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="box box--call">
+              <h3>Parla con noi</h3>
+              <p>Per informazioni su sostegno alle famiglie, formazione professionale e Servizio Civile Universale.</p>
+              <a class="btn" href="tel:+390918886084">091 888 6084</a>
+              <a class="btn btn--ghost" href="tel:+393343358058">334 335 8058</a>
+            </div>
+
+            <div class="info">
+              <div class="box">
+                <h3 class="kicker">Apertura al pubblico</h3>
+                <p class="big">Lunedì, martedì, mercoledì e venerdì</p>
+                <p class="big">15:00 – 20:00</p>
+              </div>
+              <div class="box">
+                <h3 class="kicker">Sede operativa</h3>
+                <p class="big">Piazzetta Petralia 3</p>
+                <p class="muted">90032 Bisacquino (PA)</p>
+                <a class="link" href="https://www.google.com/maps/search/?api=1&query=Piazzetta+Petralia+3+90032+Bisacquino+PA" target="_blank" rel="noopener">
+                  Apri in Google Maps <span class="sr">(si apre in una nuova scheda)</span>
+                </a>
+              </div>
+              <div class="box box--wide">
+                <h3 class="kicker">Sede legale</h3>
+                <p class="big">Via Malerva 1</p>
+                <p class="muted">90032 Bisacquino (PA)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="f-brand">
+          <b>Nuovi Orizzonti APS</b>
+          <p>Associazione di promozione sociale senza scopo di lucro. Dal 2012 al servizio del sociale, in convenzione con il Banco delle Opere di Carità.</p>
+        </div>
+        <div class="f-col">
+          <h2 class="kicker">Sedi</h2>
+          <p>Sede operativa: Piazzetta Petralia 3</p>
+          <p>Sede legale: Via Malerva 1</p>
+          <p>90032 Bisacquino (PA)</p>
+        </div>
+        <div class="f-col">
+          <h2 class="kicker">Contatti</h2>
+          <p><a href="tel:+390918886084">091 888 6084</a></p>
+          <p><a href="tel:+393343358058">334 335 8058</a></p>
+          <p><a href="mailto:nuoviorizzonti2aps@gmail.com">nuoviorizzonti2aps@gmail.com</a></p>
+          <p>PEC: <a href="mailto:nuoviorizzonti2aps@pec.it">nuoviorizzonti2aps@pec.it</a></p>
+          <p>Lun, mar, mer e ven · 15:00 – 20:00</p>
+        </div>
+      </div>
+      <div class="legal">
+        <div class="wrap">
+          <p><b>Nuovi Orizzonti APS</b></p>
+          <p>Codice fiscale <b>97277400822</b></p>
+          <p>Partita IVA <b>07276480824</b></p>
+          <p>Iscrizione al RUNTS: <b>D.D.G. n. 3759 del 13/12/2024</b></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
